@@ -1,4 +1,9 @@
 @import "tailwindcss";
+
+/* własne breakpinty */
+@theme {
+  --breakpoint-md1: 782px;
+}
 body {
   background-color: gray;
   font-family: "Archivo";
