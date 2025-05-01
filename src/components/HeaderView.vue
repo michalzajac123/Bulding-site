@@ -1,11 +1,11 @@
 <template>
   <div
-    class="header-container top-0 bg-blue-800 z-100 text-white flex-col flex justify-center w-full"
+    class="header-container top-0 bg-blue-800 z-100 text-white flex-col flex justify-center w-full "
   >
     <div
-      class="nav flex justify-between items-center w-full max-w-7xl mx-auto px-8 z-10"
+      class="nav flex justify-between mt-14 items-center w-full max-w-7xl mx-auto px-8 z-10"
     >
-      <div class="nav-logo-container p-4">
+      <div class="nav-logo-container">
         <img src="../images/logo.png" alt="logo" class="h-30" />
       </div>
       <div class="nav-items flex space-x-12 text-lg">
@@ -124,4 +124,10 @@ const imageLink = computed(() => {
   }
 });
 </script>
-<style></style>
+<style>
+/* Dodatkowy styl dla zachowania proporcji obrazu */
+.header-container {
+  min-height: 500px; /* Minimalna wysokość dla mniejszych ekranów */
+  position: relative;
+}
+</style>
