@@ -3,6 +3,7 @@
 /* własne breakpinty */
 @theme {
   --breakpoint-md1: 782px;
+  --breakpoint-md2: 550px;
 }
 body {
   background-color: gray;
