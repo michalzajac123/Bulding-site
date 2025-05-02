@@ -6,7 +6,7 @@
 }
 body {
   background-color: gray;
-  font-family: "Archivo";
+  /* font-family: "Archivo"; */
 }
 :root {
   --primary-color: #e5cd77;
