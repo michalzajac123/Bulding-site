@@ -4,7 +4,7 @@
   >
     <span class="block w-20 h-[5px] bg-yellow-500 mb-9"></span>
     <h1
-      class="mb-7 md:text-6xl w-180 text-center font-bold text-4xl tracking-wider text-[var(--secondary-color)] uppercase"
+      class="mb-7 md:text-6xl  text-center font-bold text-4xl tracking-wider text-[var(--secondary-color)] uppercase"
     >
       Zbudujemy Twoją przyszłość
     </h1>
