@@ -3,10 +3,11 @@
 /* własne breakpinty */
 @theme {
   --breakpoint-md1: 782px;
+  --breakpoint-md2: 550px;
 }
 body {
   background-color: gray;
-  font-family: "Archivo";
+  /* font-family: "Archivo"; */
 }
 :root {
   --primary-color: #e5cd77;
