@@ -1,5 +1,7 @@
 <template>
-  <div class="py-20 px-4 w-full relative">
+  <div
+    class="py-20 px-4 flex flex-col w-full relative justify-center items-center"
+  >
     <div class="max-w-7xl p-6 mx-auto relative z-10">
       <h1
         class="mb-4 md:text-6xl font-bold text-4xl tracking-wider text-[var(--secondary-color)]"
@@ -41,10 +43,13 @@
       </div>
     </div>
     <Services />
+    <div class="block w-[85%] h-[1px] bg-gray-400 md:w-[70%]"></div>
+    <Hero />
   </div>
 </template>
 
 <script setup lang="ts">
-import Services from './Services.vue';
+import Services from "./Services.vue";
+import Hero from "./Hero.vue";
 </script>
 <style></style>
