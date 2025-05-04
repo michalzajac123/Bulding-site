@@ -119,10 +119,6 @@ const closeMenu = () => {
 	isMobileMenuOpen.value = false
 }
 
-const props = defineProps({
-	msg: String,
-})
-
 const route = useRoute()
 
 const headerText = computed(() => {
