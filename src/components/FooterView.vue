@@ -37,7 +37,7 @@
           </h3>
           <ul class="space-y-2">
             <li v-for="(service, index) in services" :key="index">
-              <a
+              <div
                 :href="service.url"
                 class="text-gray-300 hover:text-white transition-colors flex items-center"
               >
@@ -54,7 +54,7 @@
                   ></path>
                 </svg>
                 {{ service.name }}
-              </a>
+              </div>
             </li>
           </ul>
         </div>
@@ -164,17 +164,9 @@
         class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center"
       >
         <p class="text-sm text-gray-400">
-          © {{ new Date().getFullYear() }} Firma Budowlana. Wszelkie prawa
-          zastrzeżone.
+          © {{ new Date().getFullYear() }} Stronę wykonał Michał Zając i Michał
+          Zachara. Wszelkie prawa zastrzeżone.
         </p>
-        <div class="mt-2 md:mt-0">
-          <a href="#" class="text-sm text-gray-400 hover:text-white mr-4"
-            >Polityka Prywatności</a
-          >
-          <a href="#" class="text-sm text-gray-400 hover:text-white"
-            >Regulamin</a
-          >
-        </div>
       </div>
     </div>
   </footer>
@@ -184,22 +176,16 @@
 const socialLinks = [
   {
     name: "Facebook",
-    url: "https://www.facebook.com/",
+    url: "https://www.facebook.com/profile.php?id=100092183511322",
     icon: `<svg class="fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 5 3.66 9.13 8.44 9.88v-6.99H7.9v-2.89h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.62.77-1.62 1.56v1.88h2.76l-.44 2.89h-2.32v6.99C18.34 21.13 22 17 22 12z"/></svg>`,
     hoverClass: "hover:bg-blue-600",
   },
   {
     name: "Instagram",
-    url: "https://www.instagram.com/",
+    url: "https://www.instagram.com/zajacdevelopment/",
     icon: `<svg class="fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 0 0 2 7.75v8.5A5.75 5.75 0 0 0 7.75 22h8.5A5.75 5.75 0 0 0 22 16.25v-8.5A5.75 5.75 0 0 0 16.25 2h-8.5zM4.5 7.75A3.25 3.25 0 0 1 7.75 4.5h8.5A3.25 3.25 0 0 1 19.5 7.75v8.5a3.25 3.25 0 0 1-3.25 3.25h-8.5A3.25 3.25 0 0 1 4.5 16.25v-8.5zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.75-2a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/></svg>`,
     hoverClass:
       "hover:bg-gradient-to-br hover:from-pink-600 hover:to-purple-600",
-  },
-  {
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/",
-    icon: `<svg class="fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"></path></svg>`,
-    hoverClass: "hover:bg-blue-700",
   },
 ];
 
