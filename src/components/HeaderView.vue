@@ -92,7 +92,7 @@
               O nas
             </router-link>
             <router-link
-              to="/"
+              to="/calculator"
               class="hover:text-[var(--primary-color)] transition-colors py-2 px-4 rounded"
               @click="closeMenu"
             >
