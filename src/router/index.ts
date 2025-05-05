@@ -10,6 +10,10 @@ const routes = [
     path: "/calculator",
     component: () => import("../views/CalculatorView/CalculatorView.vue"),
   },
+  {
+    path: "/contact",
+    component: () => import("../views/ContactView/ContactView.vue"),
+  },
 ];
 
 const router = createRouter({

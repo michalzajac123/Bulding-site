@@ -67,11 +67,11 @@
           <ul class="space-y-2">
             <li class="flex justify-between">
               <span class="text-gray-300">Poniedziałek - Piątek:</span>
-              <span>8:00 - 17:00</span>
+              <span>7:00 - 19:00</span>
             </li>
             <li class="flex justify-between">
               <span class="text-gray-300">Sobota:</span>
-              <span>9:00 - 14:00</span>
+              <span>10:00 - 19:00</span>
             </li>
             <li class="flex justify-between">
               <span class="text-gray-300">Niedziela:</span>
@@ -128,7 +128,7 @@
                 href="mailto:zaj.damian@gmail.com"
                 class="hover:text-yellow-300 transition-colors"
               >
-                zaj.damian@gmail.com
+                zajacdevelopment@gmail.com
               </a>
             </li>
             <li class="flex items-start">

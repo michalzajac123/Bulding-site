@@ -33,7 +33,7 @@
         </div>
         <div class="nav-item">
           <router-link
-            to="/"
+            to="/contact"
             class="text-white hover:text-[var(--primary-color)] transition-colors"
             >Kontakt</router-link
           >
@@ -99,7 +99,7 @@
               Kalkulator kosztów
             </router-link>
             <router-link
-              to="/"
+              to="/contact"
               class="hover:text-[var(--primary-color)] transition-colors py-2 px-4 rounded"
               @click="closeMenu"
             >
@@ -199,7 +199,7 @@ const imageLink = computed(() => {
     case "/calculator":
       return new URL("../images/Calculator.jpg", import.meta.url).href;
     case "/contact":
-      return new URL("../images/HomeContactPreview.jpeg", import.meta.url).href;
+      return new URL("../images/ContactWithUs.jpg", import.meta.url).href;
     default:
       return new URL("../images/HomeHeaderPreview.jpeg", import.meta.url).href;
   }

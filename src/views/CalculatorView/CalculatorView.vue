@@ -1,7 +1,7 @@
 <template>
   <div
     id="calculator-section"
-    class="calculator-container mx-auto w-[100%] p-6 md:p-10 lg:p-16 bg-white shadow-2xl rounded-xl border border-gray-100"
+    class="calculator-container mx-auto w-[100%] lg:w-[75%] md:w-[90%] p-6 md:p-10 lg:p-16 bg-white"
   >
     <div class="calculator-header mb-10">
       <h1
@@ -17,12 +17,14 @@
       ></div>
     </div>
 
-    <div class="input-container space-y-6">
-      <div class="priceForMetr">
+    <div class="input-container space-y-6 max-w-3xl">
+      <div class="priceForMetr text-left">
         Cena za metr: <span class="font-bold">{{ priceForMetr }} zł </span>
       </div>
       <div class="form-group">
-        <label for="area" class="block text-lg font-medium text-gray-700 mb-2"
+        <label
+          for="area"
+          class="block text-lg font-medium text-gray-700 mb-2 text-left"
           >Powierzchnia (m²)</label
         >
         <input
