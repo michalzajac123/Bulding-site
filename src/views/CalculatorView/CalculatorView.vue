@@ -18,9 +18,6 @@
     </div>
 
     <div class="input-container space-y-6 max-w-3xl">
-      <div class="priceForMetr text-left">
-        Cena za metr: <span class="font-bold">{{ priceForMetr }} zł </span>
-      </div>
       <div class="form-group">
         <label
           for="area"
@@ -37,15 +34,48 @@
         />
       </div>
 
-      <div class="form-group flex items-center">
-        <label for="withMaterial" class="flex items-center cursor-pointer">
+      <div class="form-group flex flex-col">
+        <label
+          for="withoutMaterial"
+          class="text-lg font-medium text-gray-700 mb-2"
+        >
           <input
-            type="checkbox"
-            id="withMaterial"
-            class="form-checkbox h-5 w-5 text-[var(--secondary-color)] rounded border-gray-300 focus:ring-[var(--secondary-color)] transition duration-200"
-            v-model="withMaterial"
+            type="radio"
+            id="withoutMaterial"
+            name="radioGroup"
+            value="withoutMaterial"
+            v-model="selectedOption"
+            class="ml-2"
           />
-          <span class="ml-3 text-lg text-gray-700">Z własnym materiałem</span>
+          Wykonanie stanu surowego otartego bez materiałów + sprzęty - 750 zł/m²
+        </label>
+        <label
+          for="shellCondition"
+          class="text-lg font-medium text-gray-700 mb-2"
+        >
+          <input
+            type="radio"
+            id="shellCondition"
+            name="radioGroup"
+            value="shellCondition"
+            v-model="selectedOption"
+            class="ml-2"
+          />
+          Stan surowy otwarty z materiałami - 2000 zł/m²
+        </label>
+        <label
+          for="developerCondition"
+          class="text-lg font-medium text-gray-700 mb-2"
+        >
+          <input
+            type="radio"
+            id="developerCondition"
+            name="radioGroup"
+            value="developerCondition"
+            v-model="selectedOption"
+            class="ml-2"
+          />
+          Stan deweloperski z materiałami - 4200 zł/m²
         </label>
       </div>
 
@@ -59,7 +89,7 @@
         <div></div>
         <div
           v-if="result"
-          class="results-container bg-white p-6 rounded-xl border border-gray-100 shadow-lg min-w-[400px] transition-all duration-300 transform hover:shadow-xl"
+          class="results-container bg-white p-6 rounded-xl border border-gray-100 shadow-lg min-w-[380px] transition-all duration-300 transform hover:shadow-xl"
         >
           <h3
             class="text-lg font-bold mb-2 tracking-wider text-[var(--secondary-color)] uppercase"
@@ -71,7 +101,6 @@
             <span class="ml-1 font-bold">zł</span>
           </p>
         </div>
-        <div></div>
       </div>
     </div>
   </div>
@@ -79,21 +108,27 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-const withMaterial = ref(false);
+const selectedOption = ref("withoutMaterial"); // Domyślna opcja
 const area = ref(null);
-const priceForMetr = ref(1000);
 const error = ref(false);
 const result = ref("");
 
 const calculateCost = () => {
-  if (area.value) {
-    console.log(area.value);
-    const areaValue = parseFloat(area.value);
-    const cost = withMaterial.value
-      ? areaValue * priceForMetr.value * 0.8
-      : areaValue * priceForMetr.value;
-    result.value = cost.toFixed(2);
+  if (area.value && parseInt(area.value) > 0) {
     error.value = false;
+    let costPerSquareMeter = 0;
+    switch (selectedOption.value) {
+      case "withoutMaterial":
+        costPerSquareMeter = 750;
+        break;
+      case "shellCondition":
+        costPerSquareMeter = 2000;
+        break;
+      case "developerCondition":
+        costPerSquareMeter = 4200;
+        break;
+    }
+    result.value = (parseInt(area.value) * costPerSquareMeter).toString();
   } else {
     error.value = true;
     result.value = "";
