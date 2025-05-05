@@ -1,6 +1,6 @@
 <template>
   <div
-    class="header-container top-0 bg-blue-800 z-100 text-white flex-col flex justify-center w-full"
+    class="header-container top-0 bg-blue-800 z-90 text-white flex-col flex justify-center w-full"
   >
     <div
       class="nav flex justify-between py-4 items-center w-full max-w-7xl mx-auto px-8 z-10"
