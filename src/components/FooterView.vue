@@ -125,7 +125,7 @@
                 ></path>
               </svg>
               <a
-                href="mailto:zaj.damian@gmail.com"
+                href="mailto:zajacdevelopment@gmail.com"
                 class="hover:text-yellow-300 transition-colors"
               >
                 zajacdevelopment@gmail.com
