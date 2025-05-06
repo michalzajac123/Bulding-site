@@ -1,4 +1,4 @@
-import { createDirectus, rest, authentication } from "@directus/sdk";
+import { createDirectus, rest } from "@directus/sdk";
 
 // Konfiguracja klienta z obsługą CORS
 export const client = createDirectus(
