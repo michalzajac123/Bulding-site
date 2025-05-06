@@ -1,5 +1,8 @@
-import { createDirectus, rest } from "@directus/sdk";
+import { createDirectus, rest, authentication } from "@directus/sdk";
 
-export const client = createDirectus(location.origin + "/directus/").with(
+// Konfiguracja klienta z obsługą CORS
+export const client = createDirectus(
+  "https://whale-app-jcm48.ondigitalocean.app/"
+).with(
   rest()
 );

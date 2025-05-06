@@ -9,15 +9,25 @@
       >
         Kalkulator kosztów budowy
       </h1>
-      <p class="calculator-subtitle text-gray-600 max-w-2xl mb-8 text-lg">
+      <p
+        v-if="isPhoneNumberValid"
+        class="calculator-subtitle text-gray-600 max-w-2xl mb-8 text-lg"
+      >
         Wprowadź dane dotyczące projektu, aby uzyskać wstępną wycenę.
+      </p>
+      <p
+        v-else
+        class="calculator-subtitle text-gray-600 max-w-2xl mb-8 text-lg"
+      >
+        Podaj swój numer telefonu, aby uzyskać wycenę. Twój numer telefonu moze
+        zostać wykorzystany do kontaktu w sprawie wyceny.
       </p>
       <div
         class="h-1 w-32 bg-[var(--secondary-color)] opacity-70 rounded-full mb-8"
       ></div>
     </div>
 
-    <div class="input-container space-y-6 max-w-3xl">
+    <div v-if="isPhoneNumberValid" class="input-container space-y-6 max-w-3xl">
       <div class="form-group">
         <label
           for="area"
@@ -47,7 +57,7 @@
             v-model="selectedOption"
             class="ml-2"
           />
-          Wykonanie stanu surowego otartego bez materiałów + sprzęty - 750 zł/m²
+          Wykonanie stanu surowego otartego bez materiałów + sprzęty
         </label>
         <label
           for="shellCondition"
@@ -61,7 +71,7 @@
             v-model="selectedOption"
             class="ml-2"
           />
-          Stan surowy otwarty z materiałami - 2000 zł/m²
+          Stan surowy otwarty z materiałami
         </label>
         <label
           for="developerCondition"
@@ -75,13 +85,13 @@
             v-model="selectedOption"
             class="ml-2"
           />
-          Stan deweloperski z materiałami - 4200 zł/m²
+          Stan deweloperski z materiałami
         </label>
       </div>
 
       <div class="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
         <button
-          class="px-8 py-3 bg-yellow-500 text-white rounded-lg shadow-md hover:shadow-lg hover:bg-opacity-90 transition duration-300 font-medium text-lg cursor-pointer"
+          class="px-8 py-3 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-lg shadow-md hover:shadow-lg hover:bg-opacity-90 transition duration-300 font-medium text-lg cursor-pointer"
           @click="calculateCost"
         >
           Oblicz koszt
@@ -103,15 +113,39 @@
         </div>
       </div>
     </div>
+    <div v-else class="mt-10 grid grid-cols-1">
+      <input
+        type="phone"
+        id="phoneNumber"
+        :class="error ? 'error' : ''"
+        class="px-4 py-3 w-full md:w-100 rounded-lg border border-gray-300 focus:border-[var(--secondary-color)] focus:ring focus:ring-[var(--secondary-color)] focus:ring-opacity-30 transition duration-200 outline-none mb-4"
+        placeholder="Podaj numer telefonu"
+        v-model="displayedPhoneNumber"
+        @input="changeDisplayPhoneNumber"
+      />
+    </div>
+    <button
+      v-if="!isPhoneNumberValid"
+      class="px-8 md:w-40 w-full py-3 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-lg shadow-md hover:shadow-lg hover:bg-opacity-90 transition duration-300 font-medium text-lg cursor-pointer"
+      @click="checkPhoneNumber"
+    >
+      prześlij
+    </button>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
-const selectedOption = ref("withoutMaterial"); // Domyślna opcja
-const area = ref(null);
-const error = ref(false);
-const result = ref("");
+import { createItem } from "@directus/sdk";
+import { client } from "../../utils/directusClient";
+
+const selectedOption = ref("withoutMaterial"), // Domyślna opcja
+  area = ref(null),
+  error = ref(false),
+  result = ref(""),
+  phoneNumber = ref(""),
+  isPhoneNumberValid = ref(false),
+  displayedPhoneNumber = ref("");
 
 const calculateCost = () => {
   if (area.value && parseInt(area.value) > 0) {
@@ -132,6 +166,54 @@ const calculateCost = () => {
   } else {
     error.value = true;
     result.value = "";
+  }
+};
+const checkPhoneNumber = () => {
+  const phoneRegex = /^[0-9]{9}$/;
+  if (phoneRegex.test(phoneNumber.value)) {
+    isPhoneNumberValid.value = true;
+    error.value = false;
+  } else {
+    error.value = true;
+  }
+  if (isPhoneNumberValid.value) {
+    createPhoneNumber();
+  }
+};
+
+const changeDisplayPhoneNumber = () => {
+  // delete all non-digit characters
+  phoneNumber.value = displayedPhoneNumber.value.replace(/\D/g, "");
+
+  let formatted = "";
+  for (let i = 0; i < phoneNumber.value.length; i++) {
+    if (i > 0 && i % 3 === 0 && i < 9) {
+      formatted += "-";
+    }
+    formatted += phoneNumber.value[i];
+  }
+
+  if (formatted !== displayedPhoneNumber.value) {
+    displayedPhoneNumber.value = formatted;
+  }
+};
+const createPhoneNumber = async () => {
+  console.log("Creating phone number:", phoneNumber.value);
+  try {
+    // Dodanie obsługi CORS
+     await client.request(
+      createItem(
+        "phone",
+        {
+          Phone_numbers: phoneNumber.value,
+        },
+      )
+    );
+    // Dodanie informacji o sukcesie
+  } catch (error) {
+    console.error("Error creating phone number:", error);
+    // Resetowanie walidacji i wyświetlanie błędu
+    isPhoneNumberValid.value = false;
   }
 };
 </script>
