@@ -198,7 +198,6 @@ const changeDisplayPhoneNumber = () => {
   }
 };
 const createPhoneNumber = async () => {
-  console.log("Creating phone number:", phoneNumber.value);
   try {
     // Dodanie obsługi CORS
      await client.request(
