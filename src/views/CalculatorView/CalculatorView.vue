@@ -9,25 +9,15 @@
       >
         Kalkulator kosztów budowy
       </h1>
-      <p
-        v-if="isPhoneNumberValid"
-        class="calculator-subtitle text-gray-600 max-w-2xl mb-8 text-lg"
-      >
+      <p class="calculator-subtitle text-gray-600 max-w-2xl mb-8 text-lg">
         Wprowadź dane dotyczące projektu, aby uzyskać wstępną wycenę.
-      </p>
-      <p
-        v-else
-        class="calculator-subtitle text-gray-600 max-w-2xl mb-8 text-lg"
-      >
-        Podaj swój numer telefonu, aby uzyskać wycenę. Twój numer telefonu moze
-        zostać wykorzystany do kontaktu w sprawie wyceny.
       </p>
       <div
         class="h-1 w-32 bg-[var(--secondary-color)] opacity-70 rounded-full mb-8"
       ></div>
     </div>
 
-    <div v-if="isPhoneNumberValid" class="input-container space-y-6 max-w-3xl">
+    <div class="input-container space-y-6 max-w-3xl">
       <div class="form-group">
         <label
           for="area"
@@ -113,24 +103,58 @@
         </div>
       </div>
     </div>
-    <div v-else class="mt-10 grid grid-cols-1">
-      <input
-        type="phone"
-        id="phoneNumber"
-        :class="error ? 'error' : ''"
-        class="px-4 py-3 w-full md:w-100 rounded-lg border border-gray-300 focus:border-[var(--secondary-color)] focus:ring focus:ring-[var(--secondary-color)] focus:ring-opacity-30 transition duration-200 outline-none mb-4"
-        placeholder="Podaj numer telefonu"
-        v-model="displayedPhoneNumber"
-        @input="changeDisplayPhoneNumber"
-      />
+
+    <!-- Pokazuj formularz numeru telefonu tylko jeśli mamy już wynik i nie mamy jeszcze numeru -->
+    <div v-if="result && !isPhoneNumberValid" class="mt-10 space-y-4">
+      <p class="text-gray-600 mb-2">
+        Podaj swój numer telefonu, aby zapisać wycenę. Możemy skontaktować się z
+        Tobą w sprawie szczegółów.
+      </p>
+      <div class="grid grid-cols-1">
+        <input
+          type="phone"
+          id="phoneNumber"
+          :class="phoneError ? 'error' : ''"
+          class="px-4 py-3 w-full md:w-100 rounded-lg border border-gray-300 focus:border-[var(--secondary-color)] focus:ring focus:ring-[var(--secondary-color)] focus:ring-opacity-30 transition duration-200 outline-none mb-4"
+          placeholder="Podaj numer telefonu"
+          v-model="displayedPhoneNumber"
+          @input="changeDisplayPhoneNumber"
+        />
+      </div>
+      <button
+        class="px-8 md:w-40 w-full py-3 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-lg shadow-md hover:shadow-lg hover:bg-opacity-90 transition duration-300 font-medium text-lg cursor-pointer"
+        @click="checkPhoneNumber"
+      >
+        Zapisz wycenę
+      </button>
     </div>
-    <button
-      v-if="!isPhoneNumberValid"
-      class="px-8 md:w-40 w-full py-3 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-lg shadow-md hover:shadow-lg hover:bg-opacity-90 transition duration-300 font-medium text-lg cursor-pointer"
-      @click="checkPhoneNumber"
-    >
-      prześlij
-    </button>
+
+    <!-- Potwierdzenie zapisania wyceny -->
+    <div v-if="result && isPhoneNumberValid" class="mt-10 text-center">
+      <div class="success-icon mx-auto mb-4">
+        <div
+          class="rounded-full bg-green-100 p-3 w-16 h-16 flex items-center justify-center mx-auto"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-8 h-8 text-green-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+        </div>
+      </div>
+      <p class="text-green-600 font-medium">
+        Twoja wycena została zapisana. Dziękujemy!
+      </p>
+    </div>
   </div>
 </template>
 
@@ -142,6 +166,7 @@ import { client } from "../../utils/directusClient";
 const selectedOption = ref("withoutMaterial"), // Domyślna opcja
   area = ref(null),
   error = ref(false),
+  phoneError = ref(false),
   result = ref(""),
   phoneNumber = ref(""),
   isPhoneNumberValid = ref(false),
@@ -168,16 +193,14 @@ const calculateCost = () => {
     result.value = "";
   }
 };
+
 const checkPhoneNumber = () => {
   const phoneRegex = /^[0-9]{9}$/;
   if (phoneRegex.test(phoneNumber.value)) {
-    isPhoneNumberValid.value = true;
-    error.value = false;
-  } else {
-    error.value = true;
-  }
-  if (isPhoneNumberValid.value) {
+    phoneError.value = false;
     createPhoneNumber();
+  } else {
+    phoneError.value = true;
   }
 };
 
@@ -199,20 +222,29 @@ const changeDisplayPhoneNumber = () => {
 };
 const createPhoneNumber = async () => {
   try {
-    // Dodanie obsługi CORS
-     await client.request(
-      createItem(
-        "phone",
-        {
-          Phone_numbers: phoneNumber.value,
-        },
-      )
+    switch(selectedOption.value) {
+      case "withoutMaterial":
+        selectedOption.value = "Stan surowy otwarty bez materiałów + sprzęty";
+        break;
+      case "shellCondition":
+        selectedOption.value = "Stan surowy otwarty z materiałami";
+        break;
+      case "developerCondition":
+        selectedOption.value = "Stan deweloperski z materiałami"; 
+        break;
+    }
+    await client.request(
+      createItem("quotation", {
+        Phone_number: phoneNumber.value,
+        area: area.value,
+        option: selectedOption.value,
+        estimated_cost: result.value+" zł",
+      })
     );
-    // Dodanie informacji o sukcesie
+    isPhoneNumberValid.value = true;
   } catch (error) {
     console.error("Error creating phone number:", error);
-    // Resetowanie walidacji i wyświetlanie błędu
-    isPhoneNumberValid.value = false;
+    phoneError.value = true;
   }
 };
 </script>
