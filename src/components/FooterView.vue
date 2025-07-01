@@ -125,10 +125,10 @@
                 ></path>
               </svg>
               <a
-                href="mailto:zajacdevelopment@gmail.com"
+                href="mailto:zaj.damianfm@gmail.com"
                 class="hover:text-yellow-300 transition-colors"
               >
-                Zaj.damianfm@gmail.com
+                zaj.damianfm@gmail.com
               </a>
             </li>
             <li class="flex items-start">
