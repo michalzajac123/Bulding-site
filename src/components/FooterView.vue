@@ -107,7 +107,7 @@
                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                 ></path>
               </svg>
-              <span>ul. Myśliwska Bochnia</span>
+              <span>Gnojnik 45</span>
             </li>
             <li class="flex items-start">
               <svg
@@ -128,7 +128,7 @@
                 href="mailto:zajacdevelopment@gmail.com"
                 class="hover:text-yellow-300 transition-colors"
               >
-                zajacdevelopment@gmail.com
+                Zaj.damianfm@gmail.com
               </a>
             </li>
             <li class="flex items-start">
@@ -147,10 +147,10 @@
                 ></path>
               </svg>
               <a
-                href="tel:+48123456789"
+                href="tel:+48727937524"
                 class="hover:text-yellow-300 transition-colors"
               >
-                +48 123 456 789
+                +48 727 937 524
               </a>
             </li>
           </ul>
