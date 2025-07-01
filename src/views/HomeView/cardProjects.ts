@@ -31,7 +31,6 @@ export const projects: ProjectInfo[] = [
     galleryImages: [
       "Home1/Foundation1.jpeg",
       "Home1/Foundation2.jpeg",
-      "Home1/WallConstruction.jpeg",
       "Home1/ReadyHome1.jpeg",
       "Home1/ReadyHome2.jpeg",
       "Home1/ReadyHome3.jpeg",
