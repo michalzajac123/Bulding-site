@@ -16,93 +16,75 @@ interface ProjectInfo {
 export const projects: ProjectInfo[] = [
   {
     id: "nowoczesny-dom",
-    image: "HomePreview.jpeg",
+    image: "Home1/ReadyHome4.jpeg",
     title: "Nowoczesny Dom Jednorodzinny",
-    description: "Kompleksowa realizacja domu parterowego z poddaszem użytkowym. Wykonanie w technologii murowanej z elewacją z drewna i kamienia.",
-    area: "145",
-    features: ["3 sypialnie", "2 łazienki", "garaż dwustanowiskowy", "taras z widokiem"],
+    description:
+      "Dom jednorodzinny z tarasem nad wiatą garażową W ramach tej inwestycji wykonaliśmy kompleksową budowę nowoczesnego domu jednorodzinnego o powierzchni około 200 m². Prace prowadziliśmy od podstaw – począwszy od robót ziemnych, przez wykonanie fundamentów, aż po dach. Budynek wyróżnia się przemyślaną bryłą oraz funkcjonalnym układem, w tym dużą wiatą garażową, nad którą znajduje się przestronny taras",
+    area: "200",
+    features: ["wiata z garażem", "funkcjonalny układ", "taras z widokiem"],
     imageAlt: "Nowoczesny dom jednorodzinny z tarasem",
-    detailedDescription: "Nowoczesny dom jednorodzinny zaprojektowany z myślą o funkcjonalności i estetyce. Parter mieści przestronny salon połączony z jadalnią i kuchnią w układzie otwartym, gabinet oraz łazienkę. Na poddaszu umieszczono trzy sypialnie, w tym główną z prywatną garderobą i łazienką. Elewacja łączy elementy drewna i kamienia, nadając budynkowi nowoczesny, a zarazem przytulny charakter.",
-    year: "2023",
-    location: "Warszawa",
+    detailedDescription:
+      "Pierwszym etapem była realizacja fundamentów – na zdjęciach można zobaczyć solidne zbrojenia i przygotowanie ław fundamentowych, które stanowią bazę dla całej konstrukcji. Następnie przeszliśmy do wznoszenia ścian nośnych oraz wykonania stropu – na tym etapie budynek zaczął nabierać realnych kształtów, a jego układ funkcjonalny stawał się coraz bardziej widoczny. Kolejnym charakterystycznym elementem była konstrukcja wiaty garażowej, nad którą zaprojektowano taras. Została ona wykonana jako żelbetowa płyta nośna, co zapewnia jej trwałość oraz możliwość użytkowania przestrzeni powyżej jako dodatkowej strefy wypoczynku. Po zakończeniu prac murarskich przystąpiliśmy do wykonania dachu – na zdjęciach widać montaż więźby dachowej oraz pokrycia, które stanowi finalne zwieńczenie całej inwestycji. Zastosowane materiały zapewniają wysoką trwałość oraz estetykę, dopasowaną do nowoczesnego stylu budynku. Na końcowych zdjęciach prezentujemy gotowy dom z zewnątrz – z wyraźnie zaznaczoną wiatą i tarasem, stanowiącymi ważny element architektoniczny. Całość to efekt ścisłej współpracy z inwestorem i starannej realizacji każdego etapu budowy.",
+    year: "2024",
+    location: "Bochnia",
     materials: "Beton, drewno, kamień naturalny, szkło",
     galleryImages: [
-      "HomePreview.jpeg",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-    ]
+      "Home1/Foundation1.jpeg",
+      "Home1/Foundation2.jpeg",
+      "Home1/WallConstruction.jpeg",
+      "Home1/ReadyHome1.jpeg",
+      "Home1/ReadyHome2.jpeg",
+      "Home1/ReadyHome3.jpeg",
+      "Home1/ReadyHome4.jpeg",
+    ],
+  },
+  {
+    id: "dom-jednorodzinny",
+    image: "Home2/WallConstruction1.jpeg",
+    title: "Dom Jednorodzinny",
+    description:
+      "Nowoczesny dom jednorodzinny w miejscowości Bębło Prezentujemy jedną z naszych ostatnich realizacji – budowę nowoczesnego domu jednorodzinnego o powierzchni około 300 m², zlokalizowanego w miejscowości Bębło. Projekt wyróżnia się nowoczesną formą oraz wyjątkową ścianą szczytową wykonaną w całości ze szkła, która nadaje budynkowi lekkości i otwiera wnętrze na otaczającą przyrodę.",
+    area: "300",
+    features: [
+      "Garaż z wiatą",
+      "Taras z widokiem",
+      "ogród zimowy",
+      "podcień wejściowy",
+    ],
+    imageAlt: "Elegancki dom w stylu dworkowym z podcieniem",
+    detailedDescription:
+      "Zakres naszych prac objął kompleksowe wykonanie inwestycji – od fundamentów, przez stan surowy otwarty i zamknięty, aż po dach. Już na etapie robót ziemnych i fundamentowych zadbaliśmy o solidną bazę pod dużą i wymagającą konstrukcję. W kolejnych etapach wznosiliśmy ściany nośne i działowe, montowaliśmy stropy i przygotowaliśmy konstrukcję pod wyjątkowy element tej inwestycji – dużą przeszkloną ścianę szczytową, która stała się głównym akcentem elewacyjnym budynku. Na zdjęciach można zobaczyć, jak stopniowo nabierała ona kształtu – od surowej konstrukcji po gotową formę z dużymi przeszkleniami, wpuszczającymi do wnętrza naturalne światło. Równolegle realizowaliśmy konstrukcję dachu, który ze względu na powierzchnię i charakter budynku wymagał starannego zaprojektowania i precyzyjnego wykonania. Dzięki zastosowaniu odpowiednich materiałów i dokładności naszych ekip, finalny efekt łączy trwałość z nowoczesnym wyglądem. Na końcowych zdjęciach można zobaczyć gotowy budynek w pełnej okazałości – z dominującym przeszkleniem ściany szczytowej, elegancką formą i wykończeniem, które idealnie wpisuje się w otaczający krajobraz. To inwestycja, która łączy estetykę z funkcjonalnością, i z której jesteśmy szczególnie dumni.",
+    year: "2024",
+    location: "Bębło",
+    materials: "Cegła, drewno, kamień, dachówka ceramiczna",
+    galleryImages: [
+      "Home2/WallConstruction1.jpeg",
+      "Home2/WallConstruction2.jpeg",
+    ],
   },
   {
     id: "dom-dworkowy",
-    image: "HomePreview.jpeg",
-    title: "Dom w Stylu Dworkowym",
-    description: "Pełna realizacja domu w stylu dworkowym z podcieniem i charakterystycznym dachem czterospadowym.",
-    area: "210",
-    features: ["4 sypialnie", "salon z kominkiem", "ogród zimowy", "podcień wejściowy"],
-    imageAlt: "Elegancki dom w stylu dworkowym z podcieniem",
-    detailedDescription: "Elegancki dom w stylu dworkowym nawiązujący do polskiej tradycji architektonicznej. Wyróżnia się symetryczną fasadą, kolumnowym podcieniem przy wejściu oraz charakterystycznym dachem czterospadowym. Wnętrze łączy tradycyjne elementy z nowoczesnym komfortem. Przestronny salon z kominkiem stanowi serce domu. Cztery sypialnie oraz trzy łazienki zapewniają komfort dużej rodzinie. Dopełnieniem jest ogród zimowy i taras z widokiem na zadbany ogród.",
-    year: "2022",
-    location: "Kraków",
-    materials: "Cegła, drewno, kamień, dachówka ceramiczna",
-    galleryImages: [
-      "HomePreview.jpeg",
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-    ]
-  },
-  {
-    id: "dom-pasywny",
-    image: "HomePreview.jpeg",
-    title: "Dom Pasywny",
-    description: "Innowacyjna realizacja domu energooszczędnego klasy A+ z rekuperacją i panelami fotowoltaicznymi.",
-    area: "160",
-    features: ["3 sypialnie", "pompa ciepła", "wentylacja mechaniczna", "panele fotowoltaiczne"],
+    image: "Home3/FrontWall.jpeg",
+    title: "Dom w stylu dworkowym",
+    description:
+      "W ramach tej realizacji mieliśmy przyjemność wybudować elegancki dom jednorodzinny w klasycznym stylu dworkowym. Budynek o reprezentacyjnym charakterze i powierzchni użytkowej blisko 250 m² łączy tradycyjną architekturę z nowoczesnymi rozwiązaniami technologicznymi.",
+    area: "250",
+    features: [
+      "3 sypialnie",
+      "pompa ciepła",
+      "wentylacja mechaniczna",
+      "panele fotowoltaiczne",
+    ],
     imageAlt: "Nowoczesny dom pasywny z dużymi przeszkleniami",
-    detailedDescription: "Innowacyjny projekt domu pasywnego zapewniający minimalne zużycie energii. Budynek charakteryzuje się doskonałą izolacją termiczną, zastosowaniem potrójnie szklonych okien oraz systemem rekuperacji ciepła. Instalacja fotowoltaiczna o mocy 9,8 kW w połączeniu z pompą ciepła pozwala na niemal całkowitą niezależność energetyczną. Wentylacja mechaniczna z odzyskiem ciepła zapewnia komfort termiczny i wysoką jakość powietrza przez cały rok.",
+    detailedDescription: `Nasze prace rozpoczęliśmy od wykonania fundamentów – precyzyjnie przygotowanych pod konstrukcję o symetrycznej bryle i charakterystycznym, centralnym wejściu z kolumnowym gankiem. Już na tym etapie szczególną uwagę zwracaliśmy na detale i proporcje, które są kluczowe w architekturze dworkowej.
+
+    W dalszej części budowy wznosiliśmy mury nośne i działowe, przygotowując budynek pod tradycyjny, czterospadowy dach z lukarnami, które podkreślają klasyczny styl inwestycji. Na zdjęciach widać etapy montażu więźby dachowej oraz pokrycia – wybraliśmy wysokiej jakości materiały dachowe, które nie tylko zapewniają trwałość, ale też wpisują się w estetykę dworku.
+
+    Charakterystycznym elementem realizacji jest ganek wejściowy wsparty na ozdobnych kolumnach oraz stylowe wykończenia elewacji – gzymsy, opaski okienne i subtelne detale, które oddają ducha tradycyjnego polskiego dworku.
+    Efekt końcowy to elegancki, ponadczasowy budynek, który zachwyca klasyczną formą, a jednocześnie spełnia wszystkie współczesne wymagania użytkowe. To inwestycja, która pokazuje, że tradycja i nowoczesność mogą iść w parze – z dużym sukcesem`,
     year: "2023",
-    location: "Wrocław",
-    materials: "Beton, szkło, izolacja wysokiej gęstości, materiały ekologiczne",
-    galleryImages: [
-      "HomePreview.jpeg",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-    ]
+    location: "Uszew",
+    materials: "Beton, szkło, izolacja wysokiej gęstości, dachówka ceramiczna",
+    galleryImages: ["Home3/FrontWall.jpeg", "Home3/BigWindow.jpeg"],
   },
-  {
-    id: "dom-z-poddaszem",
-    image: "HomePreview.jpeg",
-    title: "Dom z Poddaszem",
-    description: "Kompleksowa budowa domu z przestronnym poddaszem użytkowym i antresolą łączącą kondygnacje.",
-    area: "185",
-    features: ["Sypialnia główna z garderobą", "otwarta kuchnia", "antresola", "taras na dachu"],
-    imageAlt: "Dom z poddaszem użytkowym i antresolą",
-    detailedDescription: "Dom z efektownym poddaszem użytkowym i antresolą, która optycznie zwiększa przestrzeń i pozwala na przenikanie światła przez obie kondygnacje. Parter zawiera strefę dzienną z otwartą kuchnią, jadalnią i salonem o podwójnej wysokości. Poddasze mieści część prywatną z trzema sypialniami, w tym główną z garderobą i prywatną łazienką. Dodatkowo na poddaszu znajduje się pokój rekreacyjny z wyjściem na częściowo zadaszony taras na dachu.",
-    year: "2022",
-    location: "Poznań",
-    materials: "Drewno, szkło, stal, płyty betonowe",
-    galleryImages: [
-      "HomePreview.jpeg",
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    ]
-  },
-  {
-    id: "dom-na-trudnej-dzialce",
-    image: "HomePreview.jpeg",
-    title: "Dom na Trudnej Działce",
-    description: "Specjalistyczna realizacja budynku na działce ze spadkiem terenu z tarasami wielopoziomowymi.",
-    area: "175",
-    features: ["Taras widokowy", "niestandardowa konstrukcja", "przeszklenia panoramiczne", "patio"],
-    imageAlt: "Dom na skarpie z tarasami na różnych poziomach",
-    detailedDescription: "Unikatowy projekt dostosowany do trudnych warunków terenowych działki ze znacznym spadkiem. Budynek został zaprojektowany kaskadowo, z pomieszczeniami rozmieszczonymi na różnych poziomach, co pozwoliło wykorzystać naturalne ukształtowanie terenu. Wielopoziomowe tarasy oferują zapierające dech w piersiach widoki na okolicę. Konstrukcja oparta na żelbetowych słupach i stalowych elementach nośnych zapewnia stabilność całego obiektu, mimo trudnych warunków gruntowych.",
-    year: "2023",
-    location: "Gdynia",
-    materials: "Beton architektoniczny, stal, szkło hartowane, drewno egzotyczne",
-    galleryImages: [
-      "HomePreview.jpeg",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-    ]
-  }
 ];

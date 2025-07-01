@@ -22,8 +22,8 @@
         {{ props.description }}
       </p>
       <div class="mt-4 flex flex-wrap gap-2">
-        <span 
-          v-for="(feature, index) in props.features" 
+        <span
+          v-for="(feature, index) in props.features"
           :key="index"
           class="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded-md font-medium"
         >
@@ -65,8 +65,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import ProjectModal from './ProjectModal.vue';
+import { ref } from "vue";
+import ProjectModal from "./ProjectModal.vue";
 
 const props = defineProps<{
   image: string;

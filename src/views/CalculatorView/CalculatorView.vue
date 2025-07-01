@@ -222,7 +222,7 @@ const changeDisplayPhoneNumber = () => {
 };
 const createPhoneNumber = async () => {
   try {
-    switch(selectedOption.value) {
+    switch (selectedOption.value) {
       case "withoutMaterial":
         selectedOption.value = "Stan surowy otwarty bez materiałów + sprzęty";
         break;
@@ -230,7 +230,7 @@ const createPhoneNumber = async () => {
         selectedOption.value = "Stan surowy otwarty z materiałami";
         break;
       case "developerCondition":
-        selectedOption.value = "Stan deweloperski z materiałami"; 
+        selectedOption.value = "Stan deweloperski z materiałami";
         break;
     }
     await client.request(
@@ -238,7 +238,7 @@ const createPhoneNumber = async () => {
         Phone_number: phoneNumber.value,
         area: area.value,
         option: selectedOption.value,
-        estimated_cost: result.value+" zł",
+        estimated_cost: result.value + " zł",
       })
     );
     isPhoneNumberValid.value = true;

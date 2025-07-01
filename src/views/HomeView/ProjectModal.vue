@@ -3,7 +3,9 @@
     class="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-100"
     @click.self="$emit('close')"
   >
-    <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-auto">
+    <div
+      class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-auto"
+    >
       <div class="p-6">
         <div class="flex justify-between items-center mb-6">
           <h3 class="text-2xl font-bold text-gray-900">{{ props.title }}</h3>
@@ -43,7 +45,7 @@
                 <img
                   :src="image"
                   :alt="`Zdjęcie ${index + 1} realizacji ${props.title}`"
-                  class="w-full h-96 object-cover rounded-lg"
+                  class="w-full h-100 object-cover rounded-lg"
                 />
               </div>
             </div>
@@ -110,8 +112,8 @@
             <div class="mt-6">
               <h4 class="text-lg font-semibold mb-2">Cechy</h4>
               <div class="flex flex-wrap gap-2 mt-2">
-                <span 
-                  v-for="(feature, index) in props.features" 
+                <span
+                  v-for="(feature, index) in props.features"
                   :key="index"
                   class="px-3 py-1.5 bg-blue-50 text-blue-700 text-sm rounded-md font-medium"
                 >
@@ -136,7 +138,9 @@
                     clip-rule="evenodd"
                   />
                 </svg>
-                <span>Powierzchnia: <strong>{{ props.area }} m²</strong></span>
+                <span
+                  >Powierzchnia: <strong>{{ props.area }} m²</strong></span
+                >
               </li>
               <li class="flex items-start">
                 <svg
@@ -151,7 +155,9 @@
                     clip-rule="evenodd"
                   />
                 </svg>
-                <span>Rok realizacji: <strong>{{ props.year }}</strong></span>
+                <span
+                  >Rok realizacji: <strong>{{ props.year }}</strong></span
+                >
               </li>
               <li class="flex items-start">
                 <svg
@@ -166,7 +172,9 @@
                     clip-rule="evenodd"
                   />
                 </svg>
-                <span>Lokalizacja: <strong>{{ props.location }}</strong></span>
+                <span
+                  >Lokalizacja: <strong>{{ props.location }}</strong></span
+                >
               </li>
               <li class="flex items-start">
                 <svg
@@ -181,7 +189,9 @@
                     clip-rule="evenodd"
                   />
                 </svg>
-                <span>Materiały: <strong>{{ props.materials }}</strong></span>
+                <span
+                  >Materiały: <strong>{{ props.materials }}</strong></span
+                >
               </li>
             </ul>
           </div>
@@ -192,7 +202,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 
 const props = defineProps<{
   title: string;
@@ -206,7 +216,7 @@ const props = defineProps<{
   features?: string[];
 }>();
 
-const emit = defineEmits(['close']);
+const emit = defineEmits(["close"]);
 
 const currentSlide = ref(0);
 
@@ -215,11 +225,9 @@ const displayImages = computed(() => {
   if (props.galleryImages && props.galleryImages.length > 0) {
     return props.galleryImages;
   }
-  
+
   // Fallback gallery images if none are provided
-  return [
-    props.mainImage,
-  ];
+  return [props.mainImage];
 });
 
 const nextSlide = () => {
@@ -227,7 +235,9 @@ const nextSlide = () => {
 };
 
 const prevSlide = () => {
-  currentSlide.value = (currentSlide.value - 1 + displayImages.value.length) % displayImages.value.length;
+  currentSlide.value =
+    (currentSlide.value - 1 + displayImages.value.length) %
+    displayImages.value.length;
 };
 
 const goToSlide = (index: number) => {
@@ -238,10 +248,10 @@ const goToSlide = (index: number) => {
 onMounted(() => {
   // Store original body overflow style
   const originalStyle = window.getComputedStyle(document.body).overflow;
-  
+
   // Prevent scrolling on the body
-  document.body.style.overflow = 'hidden';
-  
+  document.body.style.overflow = "hidden";
+
   // Restore original body overflow style when component is unmounted
   onBeforeUnmount(() => {
     document.body.style.overflow = originalStyle;
