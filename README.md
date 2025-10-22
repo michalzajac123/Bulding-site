@@ -11,7 +11,7 @@ Clone the repository and navigate to the main directory:
 
 ```bash
 git clone https://github.com/YourRepo/Building-stie.git
-cd metbook
+cd Building-site
 ```
 
 
