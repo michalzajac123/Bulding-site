@@ -1,5 +1,11 @@
 import { createMemoryHistory, createRouter } from "vue-router";
 
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+  }
+}
+
 const routes = [
   { path: "/", component: () => import("../views/HomeView/HomeView.vue") },
   {
@@ -20,4 +26,10 @@ const router = createRouter({
   history: createMemoryHistory(),
   routes,
 });
+router.afterEach((to) => {
+  window.gtag("config", "G-KCR70JTF1S", {
+    page_path: to.fullPath,
+  });
+});
+
 export default router;
